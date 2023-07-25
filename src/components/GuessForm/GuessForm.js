@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function GuessForm({ addGuess }) {
+function GuessForm({ addGuess, gameOver }) {
   const [guess, setGuess] = useState("");
 
   const handleSubmit = (e) => {
@@ -16,6 +16,7 @@ function GuessForm({ addGuess }) {
       <label htmlFor="guess-input">Enter guess:</label>
       <input
         id="guess-input"
+        disabled={gameOver}
         name="guess"
         onChange={(e) => {
           const nextGuess = e.target.value.toUpperCase();
